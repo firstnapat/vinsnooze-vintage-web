@@ -1,0 +1,14 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea
+.vscode/*
+!.vscode/extensions.json
+
+# Safety net (per-project .gitignore handles the real cases)
+**/node_modules
+**/dist
+**/.env
+**/.env.local
