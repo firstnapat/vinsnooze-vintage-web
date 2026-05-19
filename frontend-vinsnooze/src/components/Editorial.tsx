@@ -22,7 +22,7 @@ export default function Editorial() {
               lineHeight: 0.9,
             }}
           >
-            For those who dress with memory.
+            Time folds in fabric
           </h2>
           <p className="text-[11px] text-[#7A6A5A] leading-relaxed max-w-sm mb-10" style={mono}>
             Every piece in our archive carries a history. We source, authenticate,
