@@ -1,5 +1,23 @@
 import { useState } from 'react'
 
+const mono = { fontFamily: "'Space Grotesk', Helvetica, sans-serif" }
+const display = { fontFamily: "'Space Grotesk', Helvetica, sans-serif" }
+
+const links = [
+  'FAQ',
+  'Login',
+  'The V-Mail',
+  'Membership',
+  'Our Fabrics',
+  'Stores',
+  'Referral Program',
+  'Gift Cards',
+  'Sizing Guide',
+  'Return Policy',
+  'Jobs',
+  'Terms of Service',
+]
+
 export default function Footer() {
   const [email, setEmail] = useState('')
   const [subscribed, setSubscribed] = useState(false)
@@ -10,79 +28,76 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-[#faf9f7] border-t border-black/10">
+    <footer style={{ background: '#0D0C0B', borderTop: '1px solid rgba(244,237,227,0.08)' }}>
       {/* Newsletter */}
-      <div className="border-b border-black/10 py-20 px-6">
-        <div className="max-w-xl mx-auto text-center">
-          <p className="text-xs tracking-[0.4em] uppercase text-black/40 mb-4">Get on the list</p>
-          <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tight mb-6">
+      <div className="py-20 px-8" style={{ borderBottom: '1px solid rgba(244,237,227,0.08)' }}>
+        <div className="max-w-lg mx-auto text-center">
+          <p className="text-[13px] tracking-[0.35em] uppercase text-[#7A6A5A] mb-4" style={mono}>
+            Get on the list
+          </p>
+          <h3
+            className="uppercase leading-none mb-6 text-[#F4EDE3]"
+            style={{ ...display, fontSize: '6vw', fontWeight: 900, letterSpacing: '-0.02em' }}
+          >
             Early Access to Drops
           </h3>
-          <p className="text-sm text-black/50 mb-10">
-            Sign up for early access to new vintage arrivals, exclusive pieces, and archive releases.
+          <p className="text-[15px] text-[#7A6A5A] mb-10 leading-relaxed" style={mono}>
+            New vintage arrivals, exclusive pieces, archive releases.
           </p>
           {subscribed ? (
-            <p className="text-xs tracking-widest uppercase">You're on the list.</p>
+            <p className="text-[14px] tracking-[0.3em] uppercase text-[#B09A82]" style={mono}>
+              You're on the list.
+            </p>
           ) : (
             <form onSubmit={handleSubmit} className="flex max-w-sm mx-auto">
               <input
                 type="email"
-                placeholder="Your email address"
+                placeholder="Your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 border border-black text-sm px-4 py-3 bg-transparent outline-none placeholder:text-black/30 tracking-wide"
+                className="flex-1 px-4 py-3 bg-transparent outline-none text-[#F4EDE3] tracking-wide"
+                style={{ ...mono, fontSize: '14px', border: '1px solid rgba(244,237,227,0.15)' }}
                 required
               />
               <button
                 type="submit"
-                className="border border-l-0 border-black bg-black text-[#faf9f7] text-xs tracking-[0.2em] uppercase px-6 py-3 hover:bg-black/80 transition-colors"
+                className="tracking-[0.25em] uppercase bg-[#F4EDE3] text-[#0D0C0B] px-6 py-3 hover:bg-[#D4C4A8] transition-colors"
+                style={{ ...mono, fontSize: '13px' }}
               >
-                Subscribe
+                Join
               </button>
             </form>
           )}
         </div>
       </div>
 
-      {/* Footer links */}
-      <div className="py-12 px-6 max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10">
-        <div>
-          <p className="text-xs tracking-widest uppercase font-bold mb-4">Shop</p>
-          {['New Arrivals', 'Tops', 'Bottoms', 'Outerwear', 'Accessories'].map((l) => (
-            <a key={l} href="#" className="block text-xs text-black/50 hover:text-black transition-colors mb-2 tracking-wide">
-              {l}
-            </a>
+      {/* Flat 2-col link grid */}
+      <div className="px-8 py-14">
+        <ul
+          className="grid gap-x-8 gap-y-4"
+          style={{ gridTemplateColumns: 'repeat(2, minmax(0, max-content))' }}
+        >
+          {links.map((l) => (
+            <li key={l}>
+              <a
+                href="#"
+                className="text-[#F4EDE3] hover:opacity-60 transition-opacity"
+                style={{ ...mono, fontSize: '16px', letterSpacing: '0.02em' }}
+              >
+                {l}
+              </a>
+            </li>
           ))}
-        </div>
-        <div>
-          <p className="text-xs tracking-widest uppercase font-bold mb-4">Info</p>
-          {['About Vinsnooze', 'Magazine', 'Sizing Guide', 'FAQ'].map((l) => (
-            <a key={l} href="#" className="block text-xs text-black/50 hover:text-black transition-colors mb-2 tracking-wide">
-              {l}
-            </a>
-          ))}
-        </div>
-        <div>
-          <p className="text-xs tracking-widest uppercase font-bold mb-4">Support</p>
-          {['Shipping & Returns', 'Authentication', 'Contact Us'].map((l) => (
-            <a key={l} href="#" className="block text-xs text-black/50 hover:text-black transition-colors mb-2 tracking-wide">
-              {l}
-            </a>
-          ))}
-        </div>
-        <div>
-          <p className="text-xs tracking-widest uppercase font-bold mb-4">Follow</p>
-          {['Instagram', 'TikTok', 'LINE OA'].map((l) => (
-            <a key={l} href="#" className="block text-xs text-black/50 hover:text-black transition-colors mb-2 tracking-wide">
-              {l}
-            </a>
-          ))}
-        </div>
+        </ul>
       </div>
 
-      <div className="border-t border-black/10 py-6 px-6 flex flex-col md:flex-row justify-between items-center gap-3 text-[10px] tracking-widest uppercase text-black/30">
+      {/* Bottom bar */}
+      <div
+        className="py-5 px-8 flex flex-col md:flex-row justify-between items-center gap-2 text-[12px] tracking-[0.25em] uppercase"
+        style={{ ...mono, color: 'rgba(244,237,227,0.25)', borderTop: '1px solid rgba(244,237,227,0.06)' }}
+      >
         <span>© 2026 Vinsnooze Vintage</span>
-        <span>All prices include customs delivery · Free returns within 14 days</span>
+        <span>Free returns within 14 days</span>
       </div>
     </footer>
   )

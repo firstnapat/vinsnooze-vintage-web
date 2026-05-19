@@ -1,10 +1,6 @@
 @import "tailwindcss";
 
 @layer base {
-  :root {
-    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  }
-
   * {
     box-sizing: border-box;
     margin: 0;
@@ -12,9 +8,9 @@
   }
 
   body {
-    font-family: var(--font-sans);
-    background: #faf9f7;
+    background: #F4EDE3;
     color: #111;
+    font-family: 'DM Sans', Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
 }
