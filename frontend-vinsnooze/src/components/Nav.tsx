@@ -31,20 +31,24 @@ export default function Nav() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const bg = scrolled ? '#14100C' : 'transparent'
-  const textCol = 'rgba(232,226,216,1)'
-  const mutedCol = 'rgba(232,226,216,0.65)'
+  const bg = '#fff'
+  const textCol = '#111'
+  const mutedCol = 'rgba(17,17,17,0.55)'
 
   const linkStyle = { ...mono, color: mutedCol, fontSize: '14px', letterSpacing: '0.04em', textTransform: 'uppercase' as const }
 
   return (
     <nav
       className="fixed left-0 right-0 z-50 flex items-center gap-6 px-8 transition-colors duration-300"
-      style={{ top: '36px', background: bg, backdropFilter: scrolled ? 'blur(8px)' : 'none', height: '64px' }}
+      style={{ top: '36px', background: bg, borderBottom: '1px solid rgba(0,0,0,0.08)', height: '64px' }}
     >
       {/* Logo */}
-      <a href="/" style={{ ...mono, color: textCol, fontSize: '15px', letterSpacing: '0.45em', textTransform: 'uppercase', whiteSpace: 'nowrap', flexShrink: 0 }}>
-        Vinsnooze
+      <a href="/" style={{ flexShrink: 0, display: 'flex', alignItems: 'center' }}>
+        <img
+          src="/logo.png"
+          alt="Vinsnooze"
+          style={{ height: '48px', width: 'auto', objectFit: 'contain' }}
+        />
       </a>
 
       {/* Left nav links */}
@@ -97,7 +101,7 @@ export default function Nav() {
       {menuOpen && (
         <div
           className="md:hidden absolute top-full left-0 right-0 flex flex-col gap-6 px-8 py-8"
-          style={{ ...mono, color: mutedCol, fontSize: '12px', letterSpacing: '0.04em', textTransform: 'uppercase', background: '#0D0C0B', borderBottom: '1px solid rgba(232,226,216,0.08)' }}
+          style={{ ...mono, color: mutedCol, fontSize: '12px', letterSpacing: '0.04em', textTransform: 'uppercase', background: '#fff', borderBottom: '1px solid rgba(0,0,0,0.08)' }}
         >
           {['Collections', 'Shop Women', 'Shop Men', 'Accessories', 'Membership', 'Cart (0)'].map((l) => (
             <a key={l} href="#" onClick={() => setMenuOpen(false)} style={{ color: mutedCol }} className="hover:opacity-100 transition-opacity">

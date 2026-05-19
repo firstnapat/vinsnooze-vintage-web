@@ -9,7 +9,7 @@ function App() {
     <>
       <div
         className="text-center py-2.5 text-[10px] tracking-[0.25em] uppercase"
-        style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 60, background: '#14100C', color: '#F4EDE3', fontFamily: "'Space Grotesk', Helvetica, sans-serif", fontWeight: 700 }}
+        style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 60, background: '#fff', color: '#111', fontFamily: "'Space Grotesk', Helvetica, sans-serif", fontWeight: 700, borderBottom: '1px solid rgba(0,0,0,0.08)' }}
       >
         Free shipping orders over 3,000 THB &mdash; Archive Drop Incoming
       </div>

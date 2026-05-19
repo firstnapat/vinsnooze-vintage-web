@@ -7,18 +7,24 @@ export default function Hero() {
       className="relative flex items-center justify-center"
       style={{
         height: 'calc(100vh - 36px)',
-        background: 'linear-gradient(165deg, #0D0B09 0%, #1C1510 55%, #0A0807 100%)',
+        backgroundImage: 'url(/hero.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
       }}
     >
+      {/* Dark overlay */}
+      <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.35)' }} />
       {/* Centered content */}
-      <div className="flex flex-col items-center gap-6">
+      <div className="relative z-10 flex flex-col items-center gap-6">
         {/* Season pill */}
         <span
-          className="text-[10px] tracking-[0.35em] uppercase px-6 py-2.5"
+          className="tracking-[0.35em] uppercase px-8 py-3"
           style={{
             ...mono,
-            color: '#E8E2D8',
-            border: '1px solid rgba(232,226,216,0.3)',
+            fontSize: '15px',
+            fontWeight: 600,
+            color: '#fff',
+            border: '2px solid rgba(255,255,255,0.8)',
             borderRadius: '999px',
           }}
         >
@@ -26,18 +32,18 @@ export default function Hero() {
         </span>
 
         {/* Two CTAs */}
-        <div className="flex gap-10 text-[11px] tracking-[0.2em] uppercase" style={mono}>
+        <div className="flex gap-12 tracking-[0.2em] uppercase" style={{ ...mono, fontSize: '16px', fontWeight: 600 }}>
           <a
             href="#shop"
-            className="transition-opacity hover:opacity-100"
-            style={{ color: 'rgba(232,226,216,0.7)', borderBottom: '1px solid rgba(232,226,216,0.45)', paddingBottom: '2px' }}
+            className="transition-opacity hover:opacity-80"
+            style={{ color: '#fff', borderBottom: '2px solid rgba(255,255,255,0.9)', paddingBottom: '3px' }}
           >
             Shop Tops
           </a>
           <a
             href="#shop"
-            className="transition-opacity hover:opacity-100"
-            style={{ color: 'rgba(232,226,216,0.7)', borderBottom: '1px solid rgba(232,226,216,0.45)', paddingBottom: '2px' }}
+            className="transition-opacity hover:opacity-80"
+            style={{ color: '#fff', borderBottom: '2px solid rgba(255,255,255,0.9)', paddingBottom: '3px' }}
           >
             Shop Outerwear
           </a>
@@ -45,21 +51,6 @@ export default function Hero() {
       </div>
 
       {/* Large display text bleeding from bottom */}
-      <div className="absolute bottom-0 left-0 right-0 overflow-hidden" style={{ height: '140px' }}>
-        <p
-          className="absolute bottom-0 left-5 whitespace-nowrap select-none pointer-events-none"
-          style={{
-            ...display,
-            fontSize: '13vw',
-            fontWeight: 900,
-            lineHeight: 1,
-            color: '#F4EDE3',
-            letterSpacing: '-0.01em',
-          }}
-        >
-          NEW ARRIVALS
-        </p>
-      </div>
     </section>
   )
 }
