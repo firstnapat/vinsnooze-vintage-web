@@ -46,7 +46,7 @@ node --version
 python --version
 git --version
 gh --version      # GitHub CLI
-tmux --version    # Terminal multiplexer
+tmux --version    # Terminal multiplexer/co
 ```
 
 ### Initial Setup

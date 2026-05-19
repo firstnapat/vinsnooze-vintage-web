@@ -1,22 +1,18 @@
-import { useEffect, useState } from 'react'
-import './App.css'
-
-const API_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:3000'
+import Nav from './components/Nav'
+import Hero from './components/Hero'
+import Collections from './components/Collections'
+import Editorial from './components/Editorial'
+import Footer from './components/Footer'
 
 function App() {
-  const [message, setMessage] = useState('')
-
-  useEffect(() => {
-    fetch(API_URL)
-      .then((r) => r.json())
-      .then((d: { message: string }) => setMessage(d.message))
-      .catch(() => setMessage('vinsnooze store (offline)'))
-  }, [])
-
   return (
-    <main className="home">
-      <h1>{message || 'loading…'}</h1>
-    </main>
+    <>
+      <Nav />
+      <Hero />
+      <Collections />
+      <Editorial />
+      <Footer />
+    </>
   )
 }
 
